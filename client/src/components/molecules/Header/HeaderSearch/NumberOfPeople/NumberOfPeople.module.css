@@ -1,0 +1,55 @@
+.headerSearchItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.headerIcon {
+  color: lightgray;
+}
+
+.headerSearchText {
+  color: lightgray;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+
+.options {
+  position: absolute;
+  z-index: 5;
+  top: 50px;
+  background-color: white;
+  color: gray;
+  border-radius: 5px;
+  box-shadow: 5px 15px 30px -10px rgba(0, 0, 0, 0.47);
+}
+
+.optionItem {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+}
+
+.optionCounter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+.optionCounterButton {
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--btn-color);
+  color: var(--btn-color);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.optionCounterButton:disabled {
+  cursor: not-allowed;
+}

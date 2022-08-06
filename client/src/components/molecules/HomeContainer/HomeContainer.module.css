@@ -1,0 +1,25 @@
+.homeContainer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 0 1%;
+}
+
+.homeTitleContainer {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  justify-content: flex-start;
+}
+
+.homeTitle {
+  font-style: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .homeContainer {
+    padding: 1% 5%;
+  }
+}

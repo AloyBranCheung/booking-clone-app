@@ -1,0 +1,20 @@
+.pList {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .pList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .pList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,27 @@
+.featuredHomes {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.fhItem {
+  flex: 1;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .featuredHomes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 400px) {
+  .featuredHomes {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

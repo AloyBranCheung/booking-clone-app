@@ -1,0 +1,42 @@
+.featuredHomesImg {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.fhName {
+  font-weight: bolder;
+}
+
+.fhCity {
+  font-weight: 300;
+}
+
+.fhPrice {
+  font-weight: bold;
+}
+
+.ratingButton {
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+  padding: 1%;
+  margin-right: 2%;
+  font-weight: bold;
+}
+
+.rating span {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .featuredHomesImg {
+    height: 175px;
+  }
+}
+@media (max-width: 768px) {
+  .featuredHomesImg {
+    height: 200px;
+  }
+}

@@ -1,0 +1,11 @@
+.headerDesc {
+  margin: 20px 0px;
+}
+
+.headerBtn {
+  font-weight: bold;
+  padding: 1% !important;
+  background-color: var(--btn-color);
+  color: white !important;
+  max-width: 135px;
+}

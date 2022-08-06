@@ -1,0 +1,11 @@
+.btn {
+  height: 35px;
+  background-color: var(--btn-color);
+  color: white;
+  border: none;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.5% 2%;
+  text-align: center;
+}

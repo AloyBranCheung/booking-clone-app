@@ -1,0 +1,60 @@
+.lsTitle {
+  margin-bottom: 5%;
+}
+.lsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 5%;
+  position: relative;
+}
+
+.lsItem > label {
+  font-size: 1.25rem;
+}
+
+.destinationInput {
+  border: none;
+  outline: none;
+  padding: 2%;
+  border-radius: 5px;
+}
+
+.datesPicked {
+  font-size: 1.25rem;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+  padding: 5% 1%;
+  cursor: pointer;
+}
+
+.dateRange {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  z-index: 5;
+}
+
+.optionItems {
+  padding: 2%;
+}
+
+.lsOptionItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+  font-size: 1.2rem;
+}
+.lsOptionInput {
+  width: 40px;
+  text-align: center;
+  border: none;
+  outline: none;
+  padding: 1%;
+}
+
+.searchBtn {
+  width: 100%;
+}

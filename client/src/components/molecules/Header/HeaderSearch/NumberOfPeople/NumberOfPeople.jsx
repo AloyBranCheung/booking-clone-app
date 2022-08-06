@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./NumberOfPeople.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 
-export default function NumberOfPeople({ className }) {
+export default function NumberOfPeople({ className, numPeopleValue }) {
   // Number of People Options Logic
-  const popRef = useRef();
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
@@ -23,16 +22,8 @@ export default function NumberOfPeople({ className }) {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (popRef && !popRef.current.contains(event.target)) {
-        setOpenOptions(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [popRef]);
+    numPeopleValue(options);
+  }, [numPeopleValue, options]);
 
   return (
     <div className={`${styles.headerSearchItem} ${className}`}>
@@ -42,7 +33,7 @@ export default function NumberOfPeople({ className }) {
         className={styles.headerSearchText}
       >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
       {openOptions && (
-        <div ref={popRef} className={styles.options}>
+        <div className={styles.options}>
           <div className={styles.optionItem}>
             <span className={styles.optionText}>Adult</span>
             <div className={styles.optionCounter}>

@@ -5,7 +5,6 @@ import HeaderIntro from "./HeaderIntro/HeaderIntro";
 import HeaderSearch from "./HeaderSearch/HeaderSearch";
 
 export default function Header({ type }) {
-  console.log(type);
   return (
     <div className={styles.header}>
       <div className={styles.headerContainer}>

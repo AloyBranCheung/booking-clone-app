@@ -1,0 +1,22 @@
+.hotelImages {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotelImgWrapper {
+  width: 100%;
+}
+
+.hotelImg {
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .hotelImages {
+    justify-content: space-between;
+  }
+  .hotelImgWrapper {
+    width: 33%;
+  }
+}

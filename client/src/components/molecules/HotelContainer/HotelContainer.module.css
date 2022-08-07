@@ -1,0 +1,34 @@
+.hotelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0 1%;
+}
+
+.hotelWrapper {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 1200px) {
+  .hotelContainer {
+    padding: 1% 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hotelContainer {
+    padding: 2% 5%;
+  }
+}
+
+@media (max-width: 400px) {
+  .hotelContainer {
+    padding: 5%;
+  }
+}

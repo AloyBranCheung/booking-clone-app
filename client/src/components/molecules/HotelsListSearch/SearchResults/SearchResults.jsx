@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const DUMMY_DATA = [
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=1",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",
@@ -20,7 +20,7 @@ const DUMMY_DATA = [
     price: "$100",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=2",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",
@@ -35,7 +35,7 @@ const DUMMY_DATA = [
     price: "$100",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=3",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",
@@ -50,7 +50,7 @@ const DUMMY_DATA = [
     price: "$100",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=4",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",
@@ -65,7 +65,7 @@ const DUMMY_DATA = [
     price: "$100",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=5",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",
@@ -80,7 +80,7 @@ const DUMMY_DATA = [
     price: "$100",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=6",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",
@@ -95,7 +95,7 @@ const DUMMY_DATA = [
     price: "$100",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=7",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",
@@ -110,7 +110,7 @@ const DUMMY_DATA = [
     price: "$100",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=8",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",
@@ -125,7 +125,7 @@ const DUMMY_DATA = [
     price: "$100",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=9",
     title: "Title of Apartment",
     distance: "500m from center",
     taxiOp: "Free airport taxi",

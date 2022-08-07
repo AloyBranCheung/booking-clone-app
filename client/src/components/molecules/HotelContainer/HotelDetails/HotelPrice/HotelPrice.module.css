@@ -1,0 +1,13 @@
+.hotelDetailsPrice {
+  flex: 1;
+  background-color: #ebf3ff;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.btn {
+  margin-top: 5%;
+}

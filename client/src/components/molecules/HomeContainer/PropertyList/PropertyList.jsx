@@ -5,27 +5,27 @@ import { v4 as uuidv4 } from "uuid";
 
 const DUMMY_DATA = [
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=4",
     title: "Title 1",
     description: "lorenipsum as;dkfj;as",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=5",
     title: "Title 2",
     description: "lorenipsum as;dkfj;as",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=6",
     title: "Title 3",
     description: "lorenipsum as;dkfj;as",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=7",
     title: "Title 4",
     description: "lorenipsum as;dkfj;as",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=8",
     title: "Title 5",
     description: "lorenipsum as;dkfj;as",
   },

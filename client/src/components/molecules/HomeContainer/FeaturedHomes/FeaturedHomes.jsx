@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const DUMMY_DATA = [
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=9",
     name: "Name of Place",
     city: "Name of City",
     price: "Price of Stay",
@@ -13,7 +13,7 @@ const DUMMY_DATA = [
     comment: "Excellent",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=10",
     name: "Name of Place",
     city: "Name of City",
     price: "Price of Stay",
@@ -21,7 +21,7 @@ const DUMMY_DATA = [
     comment: "Excellent",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=11",
     name: "Name of Place",
     city: "Name of City",
     price: "Price of Stay",
@@ -29,7 +29,7 @@ const DUMMY_DATA = [
     comment: "Excellent",
   },
   {
-    imgUrl: "https://picsum.photos/600/300",
+    imgUrl: "https://picsum.photos/600/300?random=12",
     name: "Name of Place",
     city: "Name of City",
     price: "Price of Stay",

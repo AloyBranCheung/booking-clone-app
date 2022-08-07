@@ -1,0 +1,21 @@
+.hotelTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hotelAddressContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hotelDistance {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+.hotelPriceHighlight {
+  color: green;
+  font-weight: 500;
+}

@@ -1,15 +1,16 @@
 import styles from "./HotelContainer.module.css";
 import React from "react";
+import HotelIntroText from "./HotelIntroText/HotelIntroText";
+import HotelImages from "./HotelImages/HotelImages";
+import HotelDetails from "./HotelDetails/HotelDetails";
 
 export default function HotelContainer() {
   return (
     <div className={styles.hotelContainer}>
       <div className={styles.hotelWrapper}>
-        <h1 className={styles.hotelTitle}>Grand Hotel</h1>
-        <div className={styles.hotelAddressContainer}>
-          <p>icon placeholder</p>
-          <p>address placeholder</p>
-        </div>
+        <HotelIntroText />
+        <HotelImages />
+        <HotelDetails />
       </div>
     </div>
   );

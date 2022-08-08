@@ -1,8 +1,8 @@
 .siImg {
-  width: 200px;
-  height: 200px;
+  width: 100%;
   object-fit: cover;
   flex: 1;
+  border-radius: 10px;
 }
 
 .siDesc {
@@ -70,6 +70,7 @@
   color: white;
   padding: 1%;
   font-weight: bold;
+  margin-left: 5%;
 }
 
 .price {
@@ -80,7 +81,19 @@
   background-color: var(--btn-color);
   color: white;
   border: none;
+  width: 100%;
   padding: 5% 1%;
   border-radius: 5px;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .searchItem {
+    flex-direction: row !important;
+  }
+  .siImg {
+    width: 150px;
+    height: 100%;
+    object-fit: cover;
+  }
 }

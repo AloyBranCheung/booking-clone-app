@@ -1,5 +1,6 @@
 import styles from "./SearchItem.module.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SearchItem({
   imgUrl,
@@ -14,10 +15,14 @@ export default function SearchItem({
   ratingComment,
   ratingNumber,
   price,
+  _id,
 }) {
   return (
     <div className={`${styles.searchItem} ${className}`}>
-      <img src={imgUrl} alt="placeholder-img" className={styles.siImg} />
+      <div className={styles.imgContainer}>
+        <img src={imgUrl} alt="placeholder-img" className={styles.siImg} />
+      </div>
+
       <div className={styles.siDesc}>
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.distance}>{distance}</p>
@@ -35,7 +40,9 @@ export default function SearchItem({
         <div className={styles.detailsText}>
           <span className={styles.price}>{price}</span>
           <p className={styles.priceDescription}>Includes taxes and fees.</p>
-          <button className={styles.availableBtn}>See Availability</button>
+          <Link to={`/hotels/${_id}`}>
+            <button className={styles.availableBtn}>See Availability</button>
+          </Link>
         </div>
       </div>
     </div>

@@ -49,9 +49,52 @@ export const getOneHotel = async (req, res, next) => {
 
 // GET - Get ALL hotels
 export const getAllHotels = async (req, res, next) => {
+  const { min, max, ...others } = req.query;
   try {
-    const hotels = await Hotel.find();
+    const hotels = await Hotel.find({
+      others,
+      cheapestPrice: { $gt: min || 1, $lt: max || 99999999 },
+    }).limit(4);
     res.status(200).json(hotels);
+  } catch (error) {
+    next(error);
+  }
+};
+// GET - Count by city
+export const countByCity = async (req, res, next) => {
+  const cities = req.query.cities.split(",");
+  try {
+    // Promise.all > iterable array of promises .map is an array of promises from .countDocuments
+    const list = await Promise.all(
+      cities.map((city) => {
+        const count = Hotel.countDocuments({ city: city });
+        return count;
+      })
+    );
+
+    const citiesCount = cities.map((city, index) => {
+      return { city: city, count: list[index] };
+    });
+
+    res.status(200).json(citiesCount);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// GET - Count by type
+export const countByType = async (req, res, next) => {
+  try {
+    const propArr = [];
+    const propertyTypes = await Hotel.distinct("type");
+    for (const property of propertyTypes) {
+      const count = await Hotel.countDocuments({ type: `${property}` });
+      propArr.push({
+        type: property,
+        count: count,
+      });
+    }
+    res.status(200).json(propArr);
   } catch (error) {
     next(error);
   }

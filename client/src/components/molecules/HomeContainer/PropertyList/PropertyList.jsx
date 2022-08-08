@@ -2,45 +2,25 @@ import React from "react";
 import styles from "./PropertyList.module.css";
 import PropertyListItem from "./PropertyListItem/PropertyListItem";
 import { v4 as uuidv4 } from "uuid";
-
-const DUMMY_DATA = [
-  {
-    imgUrl: "https://picsum.photos/600/300?random=4",
-    title: "Title 1",
-    description: "lorenipsum as;dkfj;as",
-  },
-  {
-    imgUrl: "https://picsum.photos/600/300?random=5",
-    title: "Title 2",
-    description: "lorenipsum as;dkfj;as",
-  },
-  {
-    imgUrl: "https://picsum.photos/600/300?random=6",
-    title: "Title 3",
-    description: "lorenipsum as;dkfj;as",
-  },
-  {
-    imgUrl: "https://picsum.photos/600/300?random=7",
-    title: "Title 4",
-    description: "lorenipsum as;dkfj;as",
-  },
-  {
-    imgUrl: "https://picsum.photos/600/300?random=8",
-    title: "Title 5",
-    description: "lorenipsum as;dkfj;as",
-  },
-];
+import useFetch from "../../../../hooks/useFetch";
+import { CircularProgress } from "@mui/material";
 
 export default function PropertyList() {
-  const propertyList = DUMMY_DATA.map((property) => {
+  const { data, loading, error } = useFetch("/hotels/countByType");
+
+  const propertyList = data.map((property, index) => {
     return (
       <PropertyListItem
         key={uuidv4()}
-        imgUrl={property.imgUrl}
-        title={property.title}
-        description={property.description}
+        imgUrl={`https://picsum.photos/200/300?random=${index}`}
+        title={property.type}
+        description={`${property.count}  properties of this type`}
       />
     );
   });
-  return <div className={styles.pList}>{propertyList}</div>;
+  return (
+    <div className={styles.pList}>
+      {loading ? <CircularProgress /> : <>{propertyList}</>}
+    </div>
+  );
 }

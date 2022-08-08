@@ -3,7 +3,7 @@ import React from "react";
 
 export default function PropertyListItem({ imgUrl, title, description }) {
   return (
-    <div>
+    <div className={styles.container}>
       <li className={styles.pListItem}>
         <img src={imgUrl} alt="pList-placeholder" className={styles.pListImg} />
       </li>

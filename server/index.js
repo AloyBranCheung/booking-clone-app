@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
 import hotelsRoute from "./routes/hotels.js";
@@ -10,6 +11,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+// app.use(cors);
 
 // initial connection
 const connect = async () => {

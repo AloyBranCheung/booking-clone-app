@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { SearchContext } from "../../../../context/SearchContext";
 import styles from "./HeaderSearch.module.css";
 import Button from "../../../atoms/Button";
 import DestinationSearch from "./DestinationSearch/DestinationSearch";
@@ -7,6 +8,8 @@ import NumberOfPeople from "./NumberOfPeople/NumberOfPeople";
 import { useNavigate } from "react-router-dom";
 
 export default function HeaderSearch() {
+  // context
+  const searchCtx = useContext(SearchContext);
   const [destination, setDestination] = useState("Where are you going?");
   const [dates, setDate] = useState({
     startDate: new Date(),
@@ -39,6 +42,14 @@ export default function HeaderSearch() {
 
   // Navigate to /hotels
   const searchHandler = () => {
+    searchCtx.dispatch({
+      type: "NEW_SEARCH",
+      payload: {
+        destination,
+        dates,
+        numPeople,
+      },
+    });
     navigate("/hotels", { state: { destination, dates, numPeople } });
   };
 

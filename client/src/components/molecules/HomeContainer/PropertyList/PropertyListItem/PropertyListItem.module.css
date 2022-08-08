@@ -1,3 +1,8 @@
+.container {
+  width: 100%;
+  flex: 1;
+}
+
 .pListItem {
   list-style-type: none;
   border-radius: 10px;
@@ -6,8 +11,19 @@
   flex: 1;
 }
 
+.pListTitle h2 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
 .pListImg {
   width: 100%;
-  height: 150px;
+  height: 250px;
   object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .pListImg {
+    height: 150px;
+  }
 }

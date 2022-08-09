@@ -3,11 +3,13 @@ import React, { useEffect, useState, useContext } from "react";
 import SecondaryBtn from "../../../../atoms/SecondaryBtn";
 import CircularProgress from "@mui/material/CircularProgress";
 import { SearchContext } from "../../../../../context/SearchContext";
+import ReserveModal from "../../HotelIntroText/ReserveModal/ReserveModal";
 
 export default function HotelPrice({ data, loading }) {
   const [roomCount, setRoomCount] = useState(1);
   const [cheapestPrice, setCheapestPrice] = useState(0);
   const [bro, setBro] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     setRoomCount(data.rooms);
     setCheapestPrice(data.cheapestPrice);
@@ -23,6 +25,10 @@ export default function HotelPrice({ data, loading }) {
     return diff;
   };
 
+  const openModal = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   useEffect(() => {
     const diff = dateDiff(dates.startDate, dates.endDate);
     setCalculatedDateDiff(diff);
@@ -30,6 +36,7 @@ export default function HotelPrice({ data, loading }) {
 
   return (
     <>
+      {isOpen && <ReserveModal openModal={openModal} />}
       {loading ? (
         <CircularProgress />
       ) : (
@@ -46,8 +53,12 @@ export default function HotelPrice({ data, loading }) {
           </h2>
           <p>{`That's $${
             calculatedDateDiff * cheapestPrice * roomCount.length
-          } total for ${roomCount.length} rooms`}</p>
-          <SecondaryBtn text="Reserve or Book Now" className={styles.btn} />
+          } total for 1 room`}</p>
+          <SecondaryBtn
+            onClick={openModal}
+            text="Reserve or Book Now"
+            className={styles.btn}
+          />
         </div>
       )}
     </>

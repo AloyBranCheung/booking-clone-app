@@ -5,6 +5,7 @@ import Hotel from "./pages/HotelPage/Hotel";
 import "./App.css";
 import Layout from "./components/molecules/Layout/Layout";
 import Login from "./pages/Login/Login";
+import Completed from "./pages/Completed/Completed";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/hotels" element={<HotelsList />} />
           <Route path="/hotels/:hotelId" element={<Hotel />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/completed" element={<Completed />} />
         </Routes>
       </BrowserRouter>
     </Layout>

@@ -1,10 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import Button from "../../atoms/Button";
 import { AuthContext } from "../../../context/AuthContext";
 
 export default function Navbar() {
   const { user, dispatch } = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [user]);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -16,7 +25,7 @@ export default function Navbar() {
         <a href="/" className={styles.logo}>
           BookingAppClone
         </a>
-        {user ? (
+        {isLoggedIn ? (
           <Button
             classname={styles.logout}
             text="Logout"
@@ -25,7 +34,9 @@ export default function Navbar() {
         ) : (
           <div className={styles.navItems}>
             <Button className={styles.navButton} text="Register" />
-            <Button className={styles.navButton} text="Login" />
+            <a href="/login">
+              <Button className={styles.navButton} text="Login" />
+            </a>
           </div>
         )}
       </div>

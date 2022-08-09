@@ -8,15 +8,18 @@
   right: 0;
   left: 0;
   padding: 3%;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 3%;
+  padding: 5%;
   position: relative;
   gap: 1%;
+  height: 50vh;
 }
 
 .wrapper h1 {
@@ -25,6 +28,52 @@
 
 .close {
   position: absolute;
-  top: 0.5%;
+  top: 3%;
   right: 5%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 2%;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rooms {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.rooms label {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.description {
+  font-weight: 300;
+}
+
+.maxPeople {
+  font-size: 1rem;
+}
+
+@media (min-width: 450px) {
+  .wrapper {
+    height: 40vh;
+  }
+
+  .close {
+    top: 5%;
+  }
 }

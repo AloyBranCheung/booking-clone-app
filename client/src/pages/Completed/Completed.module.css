@@ -1,0 +1,16 @@
+.completedContainer {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  width: 100%;
+  justify-content: center;
+}

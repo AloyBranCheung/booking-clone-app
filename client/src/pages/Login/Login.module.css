@@ -11,6 +11,10 @@
   flex-direction: column;
 }
 
+.wrapper h1 {
+  margin-bottom: 5%;
+}
+
 .loginInput {
   padding: 5%;
   margin-bottom: 5%;

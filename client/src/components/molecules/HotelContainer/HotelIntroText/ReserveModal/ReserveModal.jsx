@@ -1,6 +1,6 @@
 import styles from "./ReserveModal.module.css";
-import React, { useState, useContext, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import useFetch from "../../../../../hooks/useFetch";
@@ -8,9 +8,11 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { v4 as uuidv4 } from "uuid";
 import SecondaryBtn from "../../../../atoms/SecondaryBtn";
 import { SearchContext } from "../../../../../context/SearchContext";
+import axios from "axios";
 
-export default function ReserveModal({ className, openModal }) {
+export default function ReserveModal({ className, openModal, onReserve }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const hotelId = location.pathname.split("/")[2];
   const { data, loading, error, reFetch } = useFetch(`/hotels/room/${hotelId}`);
   const [selectedRooms, setSelectedRooms] = useState([]);
@@ -34,7 +36,6 @@ export default function ReserveModal({ className, openModal }) {
   // check if rooms selected are available with selected dates
   const roomIsAvailable = (roomNumber) => {
     if (roomNumber.length === 0 || roomNumber.length === undefined) {
-      console.log(false);
       return false;
     }
     // sees if unavailable dates matches ith date range
@@ -43,7 +44,7 @@ export default function ReserveModal({ className, openModal }) {
       allDates.includes(new Date(date).getTime());
     });
 
-    return isFound;
+    return !isFound;
   };
 
   // add/remove room _ids fstrom selectedRooms array
@@ -59,7 +60,20 @@ export default function ReserveModal({ className, openModal }) {
   };
 
   // reserve now button > updates DB with unavailable dates
-  const handleReserve = () => {};
+  const handleReserve = async () => {
+    try {
+      // update rooms
+      await Promise.all(
+        selectedRooms.map((roomId) => {
+          const res = axios.put(`/rooms/availability/${roomId}`, {
+            dates: allDates,
+          });
+        })
+      );
+      onReserve(false);
+      navigate("/completed");
+    } catch (error) {}
+  };
 
   const roomsList = data.map((item) => {
     return (
@@ -70,14 +84,14 @@ export default function ReserveModal({ className, openModal }) {
           <p
             className={styles.maxPeople}
           >{`Maximum ${item.maxPeople} people`}</p>
-          <p className={styles.price}>{item.price}</p>
+          <p className={styles.price}>${item.price}</p>
         </div>
 
         <div className={styles.roomNumbers}>
           {item.roomNumbers.map((roomNumber) => {
             return (
               <div key={uuidv4()} className={styles.rooms}>
-                <label htmlFor="roomNumber">{roomNumber.number}</label>
+                <label htmlFor="roomNumber">Room No. {roomNumber.number}</label>
                 <input
                   disabled={roomIsAvailable(roomNumber.unavailableDates)}
                   onChange={handleChange}

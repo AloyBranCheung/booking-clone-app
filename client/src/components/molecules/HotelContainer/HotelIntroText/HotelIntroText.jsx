@@ -23,9 +23,15 @@ export default function HotelIntroText({ data }) {
   const toggleModal = () => {
     setOpenBooking((prev) => !prev);
   };
+
+  const closeModal = (close) => {
+    setOpenBooking(close);
+  };
   return (
     <>
-      {openBooking && <ReserveModal openModal={toggleModal} />}
+      {openBooking && (
+        <ReserveModal onReserve={closeModal} openModal={toggleModal} />
+      )}
       <h1 className={styles.hotelTitle}>
         {data.name}
         <SecondaryBtn

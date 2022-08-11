@@ -52,11 +52,23 @@ export const getOneHotel = async (req, res, next) => {
 export const getAllHotels = async (req, res, next) => {
   const { min, max, ...others } = req.query;
   try {
-    const hotels = await Hotel.find({
-      others,
-      cheapestPrice: { $gt: min || 1, $lt: max || 99999999 },
-    }).limit(4);
-    res.status(200).json(hotels);
+    // add hotel.find({...others, cheapestPrice... etc.})
+    if (
+      others.city === "Where are you going?" ||
+      others.city === undefined ||
+      others.city.length === 0
+    ) {
+      const hotels = await Hotel.find({
+        cheapestPrice: { $gt: min - 1 || 1, $lt: max || 9999999999 },
+      });
+      res.status(200).json(hotels);
+    } else {
+      const hotels = await Hotel.find({
+        ...others,
+        cheapestPrice: { $gt: min || 1, $lt: max || 99999999 },
+      });
+      res.status(200).json(hotels);
+    }
   } catch (error) {
     next(error);
   }

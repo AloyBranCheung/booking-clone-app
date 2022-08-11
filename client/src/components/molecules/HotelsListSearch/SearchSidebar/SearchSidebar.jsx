@@ -7,7 +7,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import SecondaryBtn from "../../../atoms/SecondaryBtn";
 import useFetch from "../../../../hooks/useFetch";
 import CircularProgress from "@mui/material/CircularProgress";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function SearchSidebar({ fetchedData }) {
   const { state } = useLocation();
@@ -28,33 +28,34 @@ export default function SearchSidebar({ fetchedData }) {
       key: "selection",
     },
   ]);
+  const destinationInputRef = useRef("");
+  const minInputRef = useRef("");
+  const maxInputRef = useRef("");
+
+  useEffect(() => {
+    setDateRange([dates]);
+  }, [dates]);
 
   const handleDateClick = () => {
     setDateIsOpen(!dateIsOpen);
   };
 
   // max/min onChange handler
-  const location = "";
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
   const { data, loading, error, reFetch } = useFetch(
-    `/hotels?city=${location}&min=${min || 0}&max=${max || 999999}`
+    `/hotels?city=${destination}&min=${min || 0}&max=${max || 999999}`
   );
 
   useEffect(() => {
     fetchedData(data);
   }, [data, fetchedData]);
 
-  const minPrice = (e) => {
-    setMin(e.target.value);
-  };
-
-  const maxPrice = (e) => {
-    setMax(e.target.value);
-  };
-
   // search button handler
   const searchHandler = () => {
+    setMin(minInputRef.current.value);
+    setMax(maxInputRef.current.value);
+    setDestinaton(destinationInputRef.current.value);
     reFetch();
   };
 
@@ -70,6 +71,7 @@ export default function SearchSidebar({ fetchedData }) {
               <strong>Destination</strong>
             </label>
             <input
+              ref={destinationInputRef}
               name="destination"
               type="text"
               className={styles.destinationInput}
@@ -85,7 +87,9 @@ export default function SearchSidebar({ fetchedData }) {
               name="dates"
               className={styles.datesPicked}
             >
-              {dates.startDate.toDateString()} to {dates.endDate.toDateString()}
+              {dateRange[0].startDate.toDateString()} to{" "}
+              {dateRange[0].endDate.toDateString()}
+              {/* {dates.startDate.toDateString()} to {dates.endDate.toDateString()} */}
             </p>
             {dateIsOpen && (
               <DateRange
@@ -108,7 +112,7 @@ export default function SearchSidebar({ fetchedData }) {
                   Min price <small>per night</small>
                 </p>
                 <input
-                  onChange={minPrice}
+                  ref={minInputRef}
                   type="number"
                   min={0}
                   className={styles.lsOptionInput}
@@ -120,7 +124,7 @@ export default function SearchSidebar({ fetchedData }) {
                   Max price <small>per night</small>
                 </p>
                 <input
-                  onChange={maxPrice}
+                  ref={maxInputRef}
                   type="number"
                   min={0}
                   className={styles.lsOptionInput}

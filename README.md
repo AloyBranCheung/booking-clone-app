@@ -9,6 +9,8 @@ Techs:
   <img width="45px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg">
 </div>
 
+<p>Booking Clone App is a clone of booking.com. This app has user authentication using JWT, a search bar function, and a booking function that checks if the dates for a specific room/location are booked. An admin panel is also included for content management. The frontend uses React and Material UI while the admin panel uses React and Sass. The backend uses Node/Express.js and MongoDB to manage the data.</p>
+
 ## Sample
 ### User Auth with JWT
 ![UserAuth](https://user-images.githubusercontent.com/104483060/184053795-1fb32eaf-551b-476d-9fc7-733fa2418257.gif)

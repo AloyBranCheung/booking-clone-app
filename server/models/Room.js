@@ -22,6 +22,10 @@ const RoomSchema = new mongoose.Schema(
       type: [{ number: Number, unavailableDates: { type: [Date] } }],
       required: true,
     },
+    hotelId: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

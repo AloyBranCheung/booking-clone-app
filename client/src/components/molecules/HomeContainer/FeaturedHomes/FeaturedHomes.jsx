@@ -7,20 +7,21 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 export default function FeaturedHomes() {
   const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
-
   const featuredHomesItems = data.map((home) => {
-    return (
-      <FeaturedHomesItem
-        key={uuidv4()}
-        className={styles.fhItem}
-        imgUrl={`https://picsum.photos/200/300?random=${uuidv4()}`}
-        name={home.name}
-        city={home.city}
-        price={home.cheapestPrice}
-        rating={home.rating.toFixed(1)}
-        comment="Excellent"
-      />
-    );
+    if (home.featured) {
+      return (
+        <FeaturedHomesItem
+          key={uuidv4()}
+          className={styles.fhItem}
+          imgUrl={`https://picsum.photos/200/300?random=${uuidv4()}`}
+          name={home.name}
+          city={home.city}
+          price={home.cheapestPrice}
+          rating={home.rating?.toFixed(1) || "0.0"}
+          comment="Excellent"
+        />
+      );
+    }
   });
   return (
     <div className={styles.featuredHomes}>
